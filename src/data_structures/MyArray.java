@@ -1,7 +1,7 @@
 package data_structures;
 
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.stream.IntStream;
 
 /**
@@ -37,7 +37,14 @@ public class MyArray {
         endTime   = System.currentTimeMillis();
         totalTime = endTime - startTime;
         System.out.println(totalTime);
-
+        //Sort descending
+        Integer[] intArray = new Integer[10];
+        Arrays.fill(intArray,1);
+        intArray[2]=2;
+        intArray[5]=3;
+        intArray[6]=7;
+        intArray[8]=10;
+        Arrays.sort(intArray, Collections.reverseOrder());
 
 
 //        long startTime = System.currentTimeMillis();
