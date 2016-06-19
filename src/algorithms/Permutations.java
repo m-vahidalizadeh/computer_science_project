@@ -5,7 +5,7 @@ package algorithms;
  */
 public class Permutations {
 
-    public static void main3(String[] args) {
+    public static void main(String[] args) {
         String input = "ABC";
         permutation(input);
     }
