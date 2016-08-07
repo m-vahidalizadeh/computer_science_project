@@ -1,5 +1,8 @@
 package algorithms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Mohammad on 8/6/2016.
  */
@@ -31,24 +34,46 @@ public class TreeTraverse {
         node7.right = node8;
         node9.right = node3;
         node9.left = node2;
-
+        System.out.println("DFS: ");
         depthFirstSearch(node1);
+        System.out.println("\nBFS: ");
+        breadthFirstSearch(node1);
 
     }
 
     private static void depthFirstSearch(Node node){
         if(node.left == null && node.right == null){
-            System.out.println(node.data);
+            System.out.print(node.data+" ");
             node.visited = true;
         }else if(node.left == null || node.left.visited){
             depthFirstSearch(node.right);
-            System.out.println(node.data);
+            System.out.print(node.data+" ");
             node.visited = true;
         }else{
             depthFirstSearch(node.left);
             node.visited = true;
-            System.out.println(node.data);
+            System.out.print(node.data+" ");
             depthFirstSearch(node.right);
+
+        }
+    }
+
+    private static void breadthFirstSearch(Node node){
+        List<Node> al = new ArrayList<>();
+        al.add(node);
+        while(!al.isEmpty()){
+            node = al.get(0);
+            if(node.left != null){
+                int index = al.size();
+                al.add(index,node.left);
+            }
+            if(node.right != null){
+                int index = al.size();
+                al.add(index,node.right);
+            }
+            System.out.print(al.get(0).data+" ");
+            al.remove(0);
+
 
         }
     }
