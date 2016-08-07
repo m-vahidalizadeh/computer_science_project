@@ -22,6 +22,12 @@ public class TreeTraverse {
     }
 
     public static void main(String[] args) {
+        //The tree:
+        //   1
+        //  / \
+        // 7   9
+        // \  / \
+        //  8 2 3
 
         Node node1 = new Node(1);
         Node node7 = new Node(7);
