@@ -55,4 +55,21 @@ public class Person implements Comparable<Person>{
         }
 
     };
+
+    public static Comparator<Person> PersonAgeComparator
+            = new Comparator<Person>() {
+
+        public int compare(Person persons1, Person persons2) {
+
+            int personAge1 = persons1.age;
+            int personAge2 = persons2.age;
+
+            //ascending order
+            return personAge1 - personAge2;
+
+            //descending order
+            //return fruitName2.compareTo(fruitName1);
+        }
+
+    };
 }
