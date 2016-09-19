@@ -85,6 +85,25 @@ public class BitSetExample {
 
         System.out.println();
 
+        //Setting bits to zero and one
+        bits1.set(1);
+        bits2.set(1,false);
+
+        System.out.println("set bit 1 of BitSet1 to one and set bit 1 of BitSet2 to zero\nBitSet1: ");
+
+        for(int i = 0; i < 7; i++) {
+            System.out.print(bits1.get(i)? "1 ": "0 ");
+        }
+
+        System.out.println();
+        System.out.println("BitSet2: ");
+
+        for(int i = 0; i < 7; i++) {
+            System.out.print(bits2.get(i)? "1 ": "0 ");
+        }
+
+        System.out.println();
+
 
 
 
