@@ -1,13 +1,14 @@
-package data_structures;
+package base;
 
 import java.util.Comparator;
 
 /**
  * Created by Mohammad on 6/18/2016.
  */
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Person> {
     String name;
     int age;
+
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
