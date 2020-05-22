@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.tree;
 
 /**
  * Created by Mohammad on 6/19/2016.

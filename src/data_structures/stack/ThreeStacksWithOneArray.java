@@ -1,4 +1,4 @@
-package data_structures;
+package data_structures.stack;
 
 /**
  * Created by Mohammad on 9/25/2016.

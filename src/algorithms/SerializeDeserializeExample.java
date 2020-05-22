@@ -1,5 +1,7 @@
 package algorithms;
 
+import base.Coordinate;
+
 import java.io.*;
 
 /**

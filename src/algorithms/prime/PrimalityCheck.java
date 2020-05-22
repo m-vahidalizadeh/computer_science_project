@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.prime;
 
 /**
  * Created by Mohammad on 9/19/2016.

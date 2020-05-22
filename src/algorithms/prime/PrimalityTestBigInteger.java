@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.prime;
 
 import java.math.BigInteger;
 import java.util.Random;

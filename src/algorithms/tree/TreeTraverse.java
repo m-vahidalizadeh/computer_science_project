@@ -1,12 +1,25 @@
-package algorithms;
+package algorithms.tree;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Mohammad on 9/18/2016.
+ * Created by Mohammad on 8/6/2016.
  */
-public class TreeTraverseByInterface implements TreeTraverseInterface {
+public class TreeTraverse {
+
+    static class Node{
+        Node(int data){
+            this.data = data;
+            this.left = null;
+            this.right = null;
+            this.visited = false;
+        }
+        int data;
+        Node left;
+        Node right;
+        boolean visited;
+    }
 
     public static void main(String[] args) {
         //The tree:
@@ -27,16 +40,14 @@ public class TreeTraverseByInterface implements TreeTraverseInterface {
         node7.right = node8;
         node9.right = node3;
         node9.left = node2;
-        TreeTraverseByInterface dFSByInterface = new TreeTraverseByInterface();
         System.out.println("DFS: ");
-        dFSByInterface.depthFirstSearch(node1);
+        depthFirstSearch(node1);
         System.out.println("\nBFS: ");
-        dFSByInterface.breadthFirstSearch(node1);
+        breadthFirstSearch(node1);
 
     }
 
-    @Override
-    public void depthFirstSearch(Node node) {
+    private static void depthFirstSearch(Node node){
         if(node.left == null && node.right == null){
             System.out.print(node.data+" ");
             node.visited = true;
@@ -53,8 +64,7 @@ public class TreeTraverseByInterface implements TreeTraverseInterface {
         }
     }
 
-    @Override
-    public void breadthFirstSearch(Node node) {
+    private static void breadthFirstSearch(Node node){
         List<Node> al = new ArrayList<>();
         al.add(node);
         while(!al.isEmpty()){
@@ -73,6 +83,5 @@ public class TreeTraverseByInterface implements TreeTraverseInterface {
 
         }
     }
-
 
 }

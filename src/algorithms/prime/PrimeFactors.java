@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.prime;
 
 import java.util.ArrayList;
 import java.util.List;
