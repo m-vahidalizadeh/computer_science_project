@@ -1,6 +1,6 @@
 package algorithms.tree;
 
-import base.BTNode;
+import data_structures.tree.BTNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

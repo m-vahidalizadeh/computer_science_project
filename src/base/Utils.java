@@ -1,5 +1,7 @@
 package base;
 
+import data_structures.linked_list.LLNode;
+
 public class Utils {
 
     private Utils() {

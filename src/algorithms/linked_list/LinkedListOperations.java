@@ -1,6 +1,6 @@
 package algorithms.linked_list;
 
-import base.LLNode;
+import data_structures.linked_list.LLNode;
 
 public class LinkedListOperations {
 

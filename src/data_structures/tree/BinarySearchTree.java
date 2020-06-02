@@ -1,7 +1,5 @@
 package data_structures.tree;
 
-import base.BTNode;
-
 public class BinarySearchTree {
 
     public static void main(String[] args) {

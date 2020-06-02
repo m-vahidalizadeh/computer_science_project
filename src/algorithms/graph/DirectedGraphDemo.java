@@ -1,7 +1,7 @@
 package algorithms.graph;
 
-import base.DirectedGraph;
-import base.Vertex;
+import data_structures.graph.DirectedGraph;
+import data_structures.graph.Vertex;
 
 import java.util.List;
 

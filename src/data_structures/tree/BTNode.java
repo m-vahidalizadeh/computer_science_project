@@ -1,4 +1,4 @@
-package base;
+package data_structures.tree;
 
 /**
  * Binary tree node.

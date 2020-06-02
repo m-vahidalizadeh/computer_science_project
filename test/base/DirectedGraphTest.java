@@ -1,5 +1,7 @@
 package base;
 
+import data_structures.graph.DirectedGraph;
+import data_structures.graph.Vertex;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

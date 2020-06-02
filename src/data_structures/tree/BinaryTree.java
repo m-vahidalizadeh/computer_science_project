@@ -1,7 +1,5 @@
 package data_structures.tree;
 
-import base.BTNode;
-
 import java.util.LinkedList;
 import java.util.List;
 

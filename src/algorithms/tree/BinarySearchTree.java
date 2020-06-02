@@ -1,6 +1,6 @@
 package algorithms.tree;
 
-import base.BSTNode;
+import data_structures.tree.BSTNode;
 
 /**
  * Created by Mohammad on 6/19/2016.

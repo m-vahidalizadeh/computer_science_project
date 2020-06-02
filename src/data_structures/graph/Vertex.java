@@ -1,4 +1,4 @@
-package base;
+package data_structures.graph;
 
 public class Vertex {
     public String label;

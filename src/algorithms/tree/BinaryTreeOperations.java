@@ -1,6 +1,6 @@
 package algorithms.tree;
 
-import base.BTNode;
+import data_structures.tree.BTNode;
 
 import java.util.*;
 

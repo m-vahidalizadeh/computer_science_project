@@ -1,7 +1,7 @@
 package algorithms.graph;
 
-import base.UndirectedGraph;
-import base.Vertex;
+import data_structures.graph.UndirectedGraph;
+import data_structures.graph.Vertex;
 
 import java.util.List;
 

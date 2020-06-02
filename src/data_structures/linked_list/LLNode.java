@@ -1,4 +1,4 @@
-package base;
+package data_structures.linked_list;
 
 /**
  * Linked list node.

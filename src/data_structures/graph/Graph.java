@@ -1,4 +1,4 @@
-package base;
+package data_structures.graph;
 
 import java.util.*;
 
