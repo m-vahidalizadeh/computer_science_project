@@ -4,22 +4,25 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class UndirectedGraphTest {
 
     UndirectedGraph ug;
-    Vertex a = new Vertex("a");
-    Vertex b = new Vertex("b");
-    Vertex c = new Vertex("c");
-    Vertex d = new Vertex("d");
-    Vertex e = new Vertex("e");
+    Vertex a;
+    Vertex b;
+    Vertex c;
+    Vertex d;
+    Vertex e;
 
     @BeforeEach
     public void initialize() {
         ug = new UndirectedGraph();
+        a = new Vertex("a");
+        b = new Vertex("b");
+        c = new Vertex("c");
+        d = new Vertex("d");
+        e = new Vertex("e");
         ug.addVertex(a);
         ug.addVertex(b);
         ug.addVertex(c);
