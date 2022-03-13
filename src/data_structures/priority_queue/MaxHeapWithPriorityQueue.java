@@ -1,5 +1,6 @@
 package data_structures.priority_queue;
 
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 /**
@@ -9,7 +10,7 @@ public class MaxHeapWithPriorityQueue {
 
     public static void main(String args[]) {
         // create priority queue
-        PriorityQueue<Integer> prq = new PriorityQueue<>((x,y) -> y-x);
+        PriorityQueue<Integer> prq = new PriorityQueue<>(Collections.reverseOrder());
 
         // insert values in the queue
         prq.add(6);
