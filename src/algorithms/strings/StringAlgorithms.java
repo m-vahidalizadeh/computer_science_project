@@ -104,6 +104,55 @@ public class StringAlgorithms {
         return occurrences;
     }
 
+    /**
+     * Searches for all occurrences of a pattern within a text by computing the LPS array
+     * of the string "pattern#text", where "#" is a delimiter character assumed not to be
+     * present in the pattern or text.
+     * An occurrence is found if a value in the LPS array (in the part corresponding to the text)
+     * equals the pattern's length.
+     *
+     * @param text    The text string to search within. Let n be its length.
+     * @param pattern The pattern string to search for. Let m be its length.
+     * @return A list of starting indices where the pattern is found in the text.
+     *         Returns an empty list if the pattern is not found, or if text/pattern is null or empty.
+     * - Time complexity: $$O(n + m)$$ (due to concatenation and LPS computation on the combined string).
+     * - Space complexity: $$O(n + m)$$ (auxiliary space for the concatenated string and its LPS array).
+     * Note: This method is generally less space-efficient than the standard KMP search.
+     *       It assumes '#' is a suitable delimiter not present in pattern or text.
+     */
+    public static List<Integer> kmpSearchWithConcatenatedLPS(String text, String pattern) {
+        List<Integer> occurrences = new ArrayList<>();
+        if (text == null || pattern == null || text.isEmpty() || pattern.isEmpty() || pattern.length() > text.length()) {
+            return occurrences;
+        }
+
+        int m = pattern.length();
+        // If pattern is empty, standard KMP returns empty list. This approach would behave differently.
+        // For consistency, we handle empty pattern as in standard kmpSearch.
+        // (The check pattern.isEmpty() is already in the guard above)
+
+        String concatenatedString = pattern + "#" + text;
+        int[] lpsOfConcatenated = computeLPSArray(concatenatedString);
+
+        // Iterate through the LPS array part corresponding to the text in the concatenated string.
+        // An LPS value equal to m indicates an occurrence of the pattern.
+        // The loop starts from index 2*m because the earliest an m-length pattern can end
+        // (if it's fully within the text part of concatenatedString) is at index 2*m
+        // (corresponding to pattern + # + pattern_match_of_length_m).
+        // The length of lpsOfConcatenated is m (pattern) + 1 (#) + n (text).
+        for (int i = 2 * m; i < lpsOfConcatenated.length; i++) {
+            if (lpsOfConcatenated[i] == m) {
+                // If lps[i] == m, it means pattern is a suffix of concatenatedString[0...i].
+                // This occurrence ends at index i in concatenatedString.
+                // The start of this occurrence in concatenatedString is i - m + 1.
+                // To find the start in the original text, subtract the length of "pattern#", which is m + 1.
+                // Start index in text = (i - m + 1) - (m + 1) = i - 2*m.
+                occurrences.add(i - (2 * m));
+            }
+        }
+        return occurrences;
+    }
+
     // --- Boyer-Moore-Horspool Algorithm ---
 
     private static final int ASCII_SIZE = 256; // Represents the alphabet size
@@ -429,6 +478,15 @@ public class StringAlgorithms {
         System.out.println("Pattern: " + patternKMP);
         System.out.println("KMP Occurrences: " + kmpSearch(textKMP, patternKMP)); // Expected: [10]
         System.out.println("KMP Occurrences (AABAACAADAABAABA): " + kmpSearch("AABAACAADAABAABA", "AABA")); // Expected: [0, 9, 12]
+
+        System.out.println("\n--- KMP Search with Concatenated LPS ---");
+        System.out.println("Text: " + textKMP);
+        System.out.println("Pattern: " + patternKMP);
+        System.out.println("KMP (Concatenated LPS) Occurrences: " + kmpSearchWithConcatenatedLPS(textKMP, patternKMP)); // Expected: [10]
+        System.out.println("KMP (Concatenated LPS) Occurrences (AABAACAADAABAABA): " + kmpSearchWithConcatenatedLPS("AABAACAADAABAABA", "AABA")); // Expected: [0, 9, 12]
+        System.out.println("KMP (Concatenated LPS) Occurrences (AAAAA, AA): " + kmpSearchWithConcatenatedLPS("AAAAA", "AA")); // Expected: [0, 1, 2, 3]
+        System.out.println("KMP (Concatenated LPS) Occurrences (ABC, D): " + kmpSearchWithConcatenatedLPS("ABC", "D")); // Expected: []
+
 
         System.out.println("\n--- Boyer-Moore-Horspool Search ---");
         String textBMH = "TRUSTHARDTOOTHBRUSHES";
